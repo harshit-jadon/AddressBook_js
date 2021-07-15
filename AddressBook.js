@@ -212,7 +212,7 @@ do{
     console.log("Enter 4 to Delete Contact:- ");
     console.log("Enter 5 to Count Contact:- ");
     console.log("Enter 6 to find by City:- ");
-
+    console.log("Enter 7 to Count by State:- "); 
     console.log("Enter 9 to Exit :- ");
     switch(select){
         case 1:
@@ -233,7 +233,9 @@ do{
         case 6:
             findByCity();
             break;
-
+        case 7:
+            countByState();
+            break;
 
     }
 }while(select !=9)
