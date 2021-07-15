@@ -98,26 +98,83 @@ addressBookArray.push(addressBook);
 const prompt = require('prompt-sync')();
 
 function addPerson(){
-    const firstName = prompt('Enter Name= ');
+    const firstname = prompt('Enter FirstName= ');
     const lastname = prompt('Enter LastName= ');
     const address = prompt('Enter Address= ');
     const city = prompt('Enter City= ');
     const state = prompt('Enter State= ');
     const zip = prompt('Enter Zip= ');
-    const phoneNumber = prompt('Enter Mobile No= ');
+    const phonenumber = prompt('Enter Mobile No= ');
     const email = prompt('Enter Email= ');
-    let person = new AddressBook(firstName,lastname,address,city,state,zip,phoneNumber,email);
+    let person = new AddressBook(firstname,lastname,address,city,state,zip,phonenumber,email);
     addressBookArray.push(person);
 }
 
 function printAddressBook(){
-    
+    console.log(addressBookArray);
+}
+function updatePerson(){
+        const firstName = prompt('Enter FirstName:-');
+        let i=0;
+        addressBookArray.forEach(person => {
+        if(person.firstName == firstname){
+            i=1;
+            console.log('Enter 1 to update FirstName ');
+            console.log('Enter 2 to update LastName ');
+            console.log('Enter 3 to update City ');
+            console.log('Enter 4 to update City ');
+            console.log('Enter 5 to update State ');
+            console.log('Enter 6 to update Zip ');
+            console.log('Enter 7 to update Phone No ');
+            console.log('Enter 8 to update Email ');
+            const select = Number(prompt('enter selection= '));
+            switch(select){
+                case 1:
+                    const newFirstName = prompt('Enter New First Name ');
+                    contact.firstName = newFirstName;
+                    break;
+                case 2:
+                    const newLastName = prompt('Enter New Last Name ');
+                    contact.lastName = newLastName;
+                    break;
+                case 3:
+                    const newAddress = prompt('Enter New Address ');
+                    contact.address = newAddress;
+                    break;
+                case 4:
+                    const newCity = String(prompt('Enter New City '));
+                    contact.city = newCity;
+                    break;
+                case 5:
+                    const newState = prompt('Enter New State ');
+                    contact.state = newState;
+                    break;
+                case 6:
+                    const newZip = prompt('Enter New PinCode ');
+                    contact.zip = newZip;
+                    break;
+                case 7:
+                    const newPhoneNo = prompt('Enter New mobile No ');
+                    contact.phoneNumber = newPhoneNo;
+                    break;
+                case 8:
+                    const newEmail = prompt('Enter new Email ');
+                    contact.email = newEmail;
+                    break;
+                default:
+                    console.log("Wrong Choice");
+                    break;
+            }
+        }
+    });
+    if(i==0){ console.log("contact not found")}
 }
 
 let select;
 do{
     console.log("Enter 1 to Add Contact:- ");
     console.log("Enter 2 to Print Contact:- ");
+    console.log("Enter 3 to Update Contact:- ");
     console.log("Enter 9 to Exit :- ");
     switch(select){
         case 1:
@@ -125,7 +182,9 @@ do{
             break;
         case 2:
             printAddressBook();
-
-
+            break;
+        case 3: 
+            updatePerson();
+            break;
     }
 }while(select !=9)
