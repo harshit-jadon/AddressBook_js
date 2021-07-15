@@ -113,8 +113,9 @@ function addPerson(){
 function printAddressBook(){
     console.log(addressBookArray);
 }
+
 function updatePerson(){
-        const firstName = prompt('Enter FirstName:-');
+        const firstname = prompt('Enter FirstName:-');
         let i=0;
         addressBookArray.forEach(person => {
         if(person.firstName == firstname){
@@ -167,6 +168,24 @@ function updatePerson(){
             }
         }
     });
+    notFound();
+}
+
+function deletePerson(){
+    const firstname = prompt('Enter FirstName:-');
+    let i=0;
+    addressBookArray.forEach(person =>{
+        if(person.firstName == firstname){
+            let index = addressBookArray.indexOf(person);
+            addressBookArray.splice(index,1);
+            i=1;
+            console.log("Contact Deleted");
+        }
+    });
+    notFound();
+}
+
+function notFound(){
     if(i==0){ console.log("contact not found")}
 }
 
@@ -175,6 +194,7 @@ do{
     console.log("Enter 1 to Add Contact:- ");
     console.log("Enter 2 to Print Contact:- ");
     console.log("Enter 3 to Update Contact:- ");
+    console.log("Enter 4 to Delete Contact:- ");
     console.log("Enter 9 to Exit :- ");
     switch(select){
         case 1:
@@ -185,6 +205,9 @@ do{
             break;
         case 3: 
             updatePerson();
+            break;
+        case 4:
+            deletePerson();
             break;
     }
 }while(select !=9)
