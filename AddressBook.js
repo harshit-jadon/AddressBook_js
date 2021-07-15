@@ -195,6 +195,15 @@ function notFound(){
     if(i==0){ console.log("contact not found")}
 }
 
+function findByCity(){
+    const city = prompt('Enter city= ');
+    console.log(addressBookArray.filter(person => person.city == city));
+}
+function countByState(){
+    const state = prompt('Enter state= ');
+    console.log(addressBookArray.filter(person => person.state == state).reduce(count,0));
+}
+
 let select;
 do{
     console.log("Enter 1 to Add Contact:- ");
@@ -202,6 +211,8 @@ do{
     console.log("Enter 3 to Update Contact:- ");
     console.log("Enter 4 to Delete Contact:- ");
     console.log("Enter 5 to Count Contact:- ");
+    console.log("Enter 6 to find by City:- ");
+
     console.log("Enter 9 to Exit :- ");
     switch(select){
         case 1:
@@ -219,5 +230,10 @@ do{
         case 5:
             getCount();
             break;
+        case 6:
+            findByCity();
+            break;
+
+
     }
 }while(select !=9)
