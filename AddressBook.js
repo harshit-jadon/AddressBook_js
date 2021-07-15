@@ -90,3 +90,42 @@ class AddressBook{
         "\nemail : " +this.email;
     }
 }
+let addressBookArray = new Array();
+
+let addressBook = new AddressBook("Harshit","Jadon","GreaterNoida","Noida","UttarPradesh",201310,9411411513,"harshit19jadon31@gmail.com");
+addressBookArray.push(addressBook);
+
+const prompt = require('prompt-sync')();
+
+function addPerson(){
+    const firstName = prompt('Enter Name= ');
+    const lastname = prompt('Enter LastName= ');
+    const address = prompt('Enter Address= ');
+    const city = prompt('Enter City= ');
+    const state = prompt('Enter State= ');
+    const zip = prompt('Enter Zip= ');
+    const phoneNumber = prompt('Enter Mobile No= ');
+    const email = prompt('Enter Email= ');
+    let person = new AddressBook(firstName,lastname,address,city,state,zip,phoneNumber,email);
+    addressBookArray.push(person);
+}
+
+function printAddressBook(){
+    
+}
+
+let select;
+do{
+    console.log("Enter 1 to Add Contact:- ");
+    console.log("Enter 2 to Print Contact:- ");
+    console.log("Enter 9 to Exit :- ");
+    switch(select){
+        case 1:
+            addPerson();
+            break;
+        case 2:
+            printAddressBook();
+
+
+    }
+}while(select !=9)
