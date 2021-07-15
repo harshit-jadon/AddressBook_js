@@ -184,6 +184,7 @@ function deletePerson(){
     });
     notFound();
 }
+
 function count(total){
     return total += 1; 
 }
@@ -199,9 +200,19 @@ function findByCity(){
     const city = prompt('Enter city= ');
     console.log(addressBookArray.filter(person => person.city == city));
 }
+
 function countByState(){
     const state = prompt('Enter state= ');
     console.log(addressBookArray.filter(person => person.state == state).reduce(count,0));
+}
+
+function sortByName(){
+    console.log(addressBookArray.sort((person1, person2) => person1.firstName.toLowercase().localeCompare(person2.firstName.toLowercase())));
+}
+
+function sortByCity(){
+    console.log(addressBookArray.sort((person1, person2) => person1.city.toLowercase().localeCompare(person2.city.toLowercase())));
+
 }
 
 let select;
@@ -213,7 +224,9 @@ do{
     console.log("Enter 5 to Count Contact:- ");
     console.log("Enter 6 to find by City:- ");
     console.log("Enter 7 to Count by State:- "); 
-    console.log("Enter 9 to Exit :- ");
+    console.log("Enter 8 to Sort Person by Name:- ");
+    console.log("Enter 9 to Sort Person by City:- ");
+    console.log("Enter 10 to Exit :- ");
     switch(select){
         case 1:
             addPerson();
@@ -236,6 +249,11 @@ do{
         case 7:
             countByState();
             break;
-
+        case 8:
+            sortByName();
+            break;
+        case 9:
+            sortByCity();
+            break;
     }
-}while(select !=9)
+}while(select !=10)
