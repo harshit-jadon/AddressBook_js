@@ -184,6 +184,12 @@ function deletePerson(){
     });
     notFound();
 }
+function count(total){
+    return total += 1; 
+}
+function getCount(){
+    console.log(addressBookArray.reduce(count,0));
+}
 
 function notFound(){
     if(i==0){ console.log("contact not found")}
@@ -195,6 +201,7 @@ do{
     console.log("Enter 2 to Print Contact:- ");
     console.log("Enter 3 to Update Contact:- ");
     console.log("Enter 4 to Delete Contact:- ");
+    console.log("Enter 5 to Count Contact:- ");
     console.log("Enter 9 to Exit :- ");
     switch(select){
         case 1:
@@ -208,6 +215,9 @@ do{
             break;
         case 4:
             deletePerson();
+            break;
+        case 5:
+            getCount();
             break;
     }
 }while(select !=9)
